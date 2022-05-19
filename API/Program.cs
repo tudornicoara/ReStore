@@ -74,17 +74,7 @@ builder.Services.AddDbContext<StoreContext>(options =>
         var pgHost = pgHostPort.Split(":")[0];
         var pgPort = pgHostPort.Split(":")[1];
 
-        if (string.IsNullOrEmpty(connUrl))
-        {
-            Console.WriteLine("connUrl is empty");
-        }
-
         connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};SSL Mode=Require;Trust Server Certificate=true";
-        
-        if (string.IsNullOrEmpty(connStr))
-        {
-            Console.WriteLine("connStr is empty");
-        }
     }
 
     // Whether the connection string came from the local development configuration file
