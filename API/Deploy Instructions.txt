@@ -1,0 +1,8 @@
+﻿1. You need to install heroku CLI
+2. Change directory to the git folder
+3. Run 'heroku login'
+(3.1) If the repo is not yet a heroku repo, run 'heroku git:remote -a <appname>'
+4. You should make a branch called 'main' for heroku, besides master
+5. Make sure 'main' branch is up to date
+6. Run 'git push heroku main'
+7. Profit
