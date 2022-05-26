@@ -62,23 +62,26 @@ function App() {
         <ToastContainer theme='colored' position='bottom-right' hideProgressBar />
         <CssBaseline />
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
-        <Container>
-            <Switch>
-                <Route exact path='/' component={HomePage} />
-                <Route exact path='/catalog' component={Catalog} />
-                <Route path='/catalog/:id' component={ProductDetails} />
-                <Route path='/about' component={AboutPage} />
-                <Route path='/contact' component={ContactPage} />
-                <Route path='/basket' component={BasketPage} />
-                <PrivateRoute path='/checkout' component={CheckoutWrapper} />
-                <PrivateRoute path='/orders' component={Orders} />
-                <PrivateRoute roles={['Admin']} path='/inventory' component={Inventory} />
-                <Route path='/login' component={Login} />
-                <Route path='/register' component={Register} />
-                <Route path='/server-error' component={ServerError} />
-                <Route component={NotFound} />
-            </Switch>
-        </Container>
+        <Route exact path='/' component={HomePage} />
+        <Route path={'/(.+)'} render={() => (
+            <Container>
+                <Switch>
+                    <Route exact path='/' component={HomePage} />
+                    <Route exact path='/catalog' component={Catalog} />
+                    <Route path='/catalog/:id' component={ProductDetails} />
+                    <Route path='/about' component={AboutPage} />
+                    <Route path='/contact' component={ContactPage} />
+                    <Route path='/basket' component={BasketPage} />
+                    <PrivateRoute path='/checkout' component={CheckoutWrapper} />
+                    <PrivateRoute path='/orders' component={Orders} />
+                    <PrivateRoute roles={['Admin']} path='/inventory' component={Inventory} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/register' component={Register} />
+                    <Route path='/server-error' component={ServerError} />
+                    <Route component={NotFound} />
+                </Switch>
+            </Container>
+        )} />
     </ThemeProvider>
     );
 }
